@@ -5,9 +5,14 @@ class Rectangle:
     def get_area(self):
         return self.a * self.b
 
+class NonPositiveDigitException(ValueError):
+    pass
+
 class Square:
     def __init__(self, a):
         self.a = a
+        if a <= 0:
+            raise NonPositiveDigitException('Неправильно указана сторона квадрата')
     def get_area_square(self):
         return self.a ** 2
 
